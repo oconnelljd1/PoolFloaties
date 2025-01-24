@@ -10,6 +10,9 @@ public class Controller : MonoBehaviour
     [SerializeField] private List<Toggle> _toggles;
 
     private void Start() {
+        Screen.sleepTimeout  = SleepTimeout.NeverSleep;
+        Screen.orientation = ScreenOrientation.Portrait;
+        
         _blackout.SetActive(false);
     }
 
