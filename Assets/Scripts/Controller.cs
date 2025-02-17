@@ -3,42 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Controller : MonoBehaviour
+namespace PoolFloaties
 {
-    [SerializeField] private GameObject _blackout;
-    [SerializeField] private List<Color> _colors;
-    [SerializeField] private List<Toggle> _toggles;
-
-    private void Start() {
-        Screen.sleepTimeout  = SleepTimeout.NeverSleep;
-        Screen.orientation = ScreenOrientation.Portrait;
-        
-        _blackout.SetActive(false);
-    }
-
-    public void UpdateColors()
+    public class Controller : MonoBehaviour
     {
-        Debug.Log($"<color=orange>Update Colors</color>");
-        for(int i = 0; i < _toggles.Count; i++)
-        {
-            _colors[i].gameObject.SetActive(_toggles[i].isOn);
+        [SerializeField] private GameObject _blackout;
+        [SerializeField] private List<Color> _colors;
+        [SerializeField] private List<Toggle> _toggles;
+
+        private void Start() {
+            Screen.sleepTimeout  = SleepTimeout.NeverSleep;
+            Screen.orientation = ScreenOrientation.Portrait;
+            
+            _blackout.SetActive(false);
         }
-    }
 
-    public void ToggleBlackout()
-    {
-        _blackout.SetActive(!_blackout.activeInHierarchy);
-    }
-
-    public void Reset()
-    {
-        foreach(var toggle in _toggles)
+        public void UpdateColors()
         {
-            toggle.isOn = true;
+            Debug.Log($"<color=orange>Update Colors</color>");
+            for(int i = 0; i < _toggles.Count; i++)
+            {
+                _colors[i].gameObject.SetActive(_toggles[i].isOn);
+            }
         }
-        foreach (var color in _colors)
+
+        public void ToggleBlackout()
         {
-            color.Reset();
+            _blackout.SetActive(!_blackout.activeInHierarchy);
+        }
+
+        public void Reset()
+        {
+            foreach(var toggle in _toggles)
+            {
+                toggle.isOn = true;
+            }
+            foreach (var color in _colors)
+            {
+                color.Reset();
+            }
         }
     }
 }
