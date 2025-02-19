@@ -5,7 +5,7 @@ using TMPro;
 
 namespace PoolFloaties
 {
-    public class Color : MonoBehaviour
+    public class ColorTracker : MonoBehaviour
     {
         [SerializeField] private TMP_Text _display;
         [SerializeField] private GameObject _minusButton;

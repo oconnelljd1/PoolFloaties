@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 namespace PoolFloaties
 {
-    public class Controller : MonoBehaviour
+    public class FloatiesControllerV2 : MonoBehaviour
     {
         [SerializeField] private GameObject _blackout;
-        [SerializeField] private List<Color> _colors;
+        [SerializeField] private List<ColorTracker> _colors;
         [SerializeField] private List<Toggle> _toggles;
 
         private void Start() {
             Screen.sleepTimeout  = SleepTimeout.NeverSleep;
+            // Screen.orientation = ScreenOrientation.LandscapeLeft;
             Screen.orientation = ScreenOrientation.Portrait;
             
             _blackout.SetActive(false);
